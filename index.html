@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>HigieMAX</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.4.0/dist/css/uikit.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/uikit/3.4.0/js/uikit.min.js"></script>
+</head>
+<body id="app">
+    
+<div id="top" class="uk-section-primary uk-preserve-color">
+
+    <div uk-sticky="animation: uk-animation-slide-top; sel-target: .uk-navbar-container; cls-active: uk-navbar-sticky; cls-inactive: uk-navbar-transparent uk-light; top: 80">
+
+        <nav class="uk-navbar-container">
+            <div class="uk-container uk-container-expand">
+                <div uk-navbar>
+                	<a class="uk-navbar-item uk-logo" href="#top" uk-scroll>HigieMAX</a></li>
+                    <ul class="uk-navbar-nav">
+                        <li><a href="#servicios" uk-scroll>Servicios</a></li>
+                        <li><a href="#clientes" uk-scroll>Clientes</a></li>
+                        <li><a href="#contacto" uk-scroll>Contacto</a></li>
+                    </ul>
+
+                </div>
+            </div>
+        </nav>
+    </div>
+
+<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push">
+
+    <ul class="uk-slideshow-items" uk-height-viewport="offset-top: true; offset-bottom: 10">
+        <li>
+            <img src="https://getuikit.com/docs/images/photo.jpg" alt="" uk-cover>
+            <div class="uk-position-bottom  uk-position-medium uk-text-center uk-light">
+                <h2 class="uk-margin-remove">Center</h2>
+                <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/dark.jpg" alt="" uk-cover>
+            <div class="uk-position-bottom  uk-position-medium uk-text-center uk-light">
+                <h2 class="uk-margin-remove">Center</h2>
+                <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
+            <div class="uk-position-bottom  uk-position-medium uk-text-center uk-light">
+                <h2 class="uk-margin-remove">Center</h2>
+                <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+        </li>
+        <li>
+            <video src="https://yootheme.com/site/images/media/yootheme-pro.mp4" autoplay loop muted playsinline uk-cover></video>
+        </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slideshow-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slideshow-item="next"></a>
+
+    <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
+
+</div>
+
+<div class="uk-section uk-light uk-text-center">
+	<h1 id="servicios" style="padding-top: 80px;">Servicios</h1>
+    <br/>
+	<div class="uk-child-width-1-2@m uk-grid-match" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
+            <h3 class="uk-card-title">Desinfección</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+			<div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+        <li>
+            <img src="https://getuikit.com/docs/images/slider1.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>1</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider2.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>2</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider3.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>3</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider4.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>4</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider5.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>5</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider1.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>6</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider2.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>7</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider3.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>8</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider4.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>9</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider5.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>10</h1></div>
+        </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+        </div>
+    </div>
+
+
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+            <h3 class="uk-card-title">Institucional</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+        <li>
+            <img src="https://getuikit.com/docs/images/slider1.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>1</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider2.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>2</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider3.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>3</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider4.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>4</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider5.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>5</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider1.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>6</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider2.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>7</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider3.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>8</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider4.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>9</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider5.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>10</h1></div>
+        </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+
+        </div>
+    </div>    <div>
+        <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
+            <h3 class="uk-card-title">Final de evento y obra</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+        <li>
+            <img src="https://getuikit.com/docs/images/slider1.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>1</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider2.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>2</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider3.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>3</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider4.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>4</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider5.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>5</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider1.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>6</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider2.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>7</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider3.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>8</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider4.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>9</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider5.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>10</h1></div>
+        </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-right; repeat: true">
+            <h3 class="uk-card-title">Vidrios</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
+    <ul class="uk-slider-items uk-child-width-1-2 uk-child-width-1-3@s uk-child-width-1-4@m">
+        <li>
+            <img src="https://getuikit.com/docs/images/slider1.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>1</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider2.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>2</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider3.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>3</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider4.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>4</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider5.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>5</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider1.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>6</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider2.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>7</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider3.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>8</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider4.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>9</h1></div>
+        </li>
+        <li>
+            <img src="https://getuikit.com/docs/images/slider5.jpg" alt="">
+            <div class="uk-position-center uk-panel"><h1>10</h1></div>
+        </li>
+    </ul>
+
+    <a class="uk-position-center-left uk-position-small uk-hidden-hover" href="#" uk-slidenav-previous uk-slider-item="previous"></a>
+    <a class="uk-position-center-right uk-position-small uk-hidden-hover" href="#" uk-slidenav-next uk-slider-item="next"></a>
+
+</div>
+        </div>
+    </div>
+</div>
+</div>
+
+<div class="uk-section uk-light uk-text-center" >
+    <h1 id="clientes" style="padding-top: 80px;">Clientes</h1>
+    <br/>
+<div class="uk-container">
+<div class="uk-child-width-1-3@s" uk-grid>
+    <div>
+        <div class="uk-card uk-card-default uk-card-small uk-card-body">
+            <h3 class="uk-card-title">Small</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-small uk-card-body">
+            <h3 class="uk-card-title">Small</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-large uk-card-body">
+            <h3 class="uk-card-title">Large</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+    <div>
+        <div class="uk-card uk-card-default uk-card-small uk-card-body">
+            <h3 class="uk-card-title">Small</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
+<div class="uk-section uk-light uk-text-center" >
+    <h1 id="contacto" style="padding-top: 80px;">Contacto</h1>
+</div>
+
+<div class="uk-container uk-container-expand">
+	<div class="uk-card uk-card-default uk-card-body">
+        <form>
+        <fieldset class="uk-fieldset">
+            <legend class="uk-legend"></legend>
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Nombre">
+            </div>
+
+            <div class="uk-margin">
+                <input class="uk-input" type="text" placeholder="Email">
+            </div>
+
+            <div class="uk-margin">
+                <textarea class="uk-textarea" rows="5" placeholder="Mensaje"></textarea>
+            </div>
+            <div class="uk-margin">
+                <button class="uk-button uk-button-primary">Enviar</button>
+            </div>
+        </fieldset>
+        </form>
+    </div>
+</div>
+        <br/>
+        <br/>
+</div>
+
+<div class="uk-section uk-section-secondary uk-light">
+    <div class="uk-container uk-text-center">
+        <h3>HigieMAX</h3>
+    </div>
+</div>
+
+</div>
+  <!-- Vue -->   
+  <script src="https://unpkg.com/vue"></script>
+  <!-- Firebase -->   
+  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+  <!-- Firestore -->   
+  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-firestore.js"></script>
+  <!-- vue-firestore -->
+  <script src="https://unpkg.com/vue-firestore"></script>
+  <!-- main -->   
+  <script src="main.js"></script>
+</body>
+</html>
