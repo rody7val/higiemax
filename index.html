@@ -40,11 +40,25 @@
     <!-- slider -->
     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slideshow="animation: push">
         <ul class="uk-slideshow-items" uk-height-viewport="offset-top: true; offset-bottom: 10">
-            <li v-for="slide in slideshow">
-                <img :src="slide.src" alt="slide.title" uk-cover>
+            <li>
+                <img src="https://getuikit.com/docs/images/photo.jpg" alt="" uk-cover>
                 <div class="uk-position-bottom  uk-position-medium uk-text-center uk-light">
-                    <h2 class="uk-margin-remove">{{slide.title}}</h2>
-                    <p class="uk-margin-remove">{{slide.desc}}</p>
+                    <h2 class="uk-margin-remove">Desinfección COVID-19</h2>
+                    <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://getuikit.com/docs/images/dark.jpg" alt="" uk-cover>
+                <div class="uk-position-bottom  uk-position-medium uk-text-center uk-light">
+                    <h2 class="uk-margin-remove">Trabajo profesional</h2>
+                    <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                </div>
+            </li>
+            <li>
+                <img src="https://getuikit.com/docs/images/light.jpg" alt="" uk-cover>
+                <div class="uk-position-bottom  uk-position-medium uk-text-center uk-light">
+                    <h2 class="uk-margin-remove">Confianza</h2>
+                    <p class="uk-margin-remove">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
                 </div>
             </li>
         </ul>
@@ -58,14 +72,14 @@
             uk-slidenav-next uk-slideshow-item="next"></a>
         <ul class="uk-slideshow-nav uk-dotnav uk-flex-center uk-margin"></ul>
     </div>
-    <!-- servicios -->
+    <!-- services -->
     <div class="uk-section uk-light uk-text-center">
         <h1 id="servicios">{{services.title}}</h1>
         <br/>
         <div class="uk-child-width-1-2@m uk-grid-match" uk-grid>
 
             <div v-for="service in services.data">
-                <div class="uk-card uk-card-default uk-card-body" uk-scrollspy="cls: uk-animation-slide-left; repeat: true">
+                <div class="uk-card uk-card-default uk-card-body">
                     <h3 class="uk-card-title">{{service.name}}</h3>
                     <p>{{service.desc}}</p>
                     <div class="uk-position-relative uk-visible-toggle uk-light" tabindex="-1" uk-slider>
@@ -85,64 +99,71 @@
                             class="uk-position-center-right uk-position-small uk-hidden-hover"
                             uk-slidenav-next
                             uk-slider-item="next"></a>
-
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- Clientes -->
+    <!-- clients -->
     <div class="uk-section uk-light uk-text-center" >
         <h1 id="clientes">Clientes</h1>
         <br/>
         <div class="uk-container">
             <div class="uk-child-width-1-3@s" uk-grid>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-small uk-card-body">
-                        <h3 class="uk-card-title">Small</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-small uk-card-body">
-                        <h3 class="uk-card-title">Small</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-large uk-card-body">
-                        <h3 class="uk-card-title">Large</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
-                    </div>
-                </div>
-                <div>
-                    <div class="uk-card uk-card-default uk-card-small uk-card-body">
-                        <h3 class="uk-card-title">Small</h3>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                <div v-for="client in clients">
+                    <div class="uk-card uk-card-default">
+                        <div class="uk-card-media-top">
+                            <img :src="client.img" :alt="client.title">
+                        </div>
+                        <div class="uk-card-body">
+                            <h3 class="uk-card-title">{{client.title}}</h3>
+                            <p>{{client.desc}}</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
-    <!-- servicios -->
+    <!-- contact -->
     <div class="uk-section uk-light uk-text-center" >
         <h1 id="contacto">Contacto</h1>
     </div>
     <div class="uk-container uk-container-expand">
+        <div v-if="contact.isSending" class="loading">Sendig...</div>
         <div class="uk-card uk-card-default uk-card-body">
-            <form>
+            <form @submit="onSubmit">
             <fieldset class="uk-fieldset">
                 <legend class="uk-legend"></legend>
                 <div class="uk-margin">
-                    <input class="uk-input" type="text" placeholder="Nombre">
+                    <input
+                        required
+                        name="name"
+                        v-model="contact.name"
+                        type="text"
+                        class="uk-input"
+                        autocomplete="off"
+                        placeholder="Nombre">
+                </div>
+                <div class="uk-margin">
+                    <input
+                        required
+                        name="email"
+                        v-model="contact.email"
+                        type="email"
+                        class="uk-input"
+                        autocomplete="off"
+                        placeholder="Email">
                 </div>
 
                 <div class="uk-margin">
-                    <input class="uk-input" type="text" placeholder="Email">
-                </div>
-
-                <div class="uk-margin">
-                    <textarea class="uk-textarea" rows="5" placeholder="Mensaje"></textarea>
+                    <textarea 
+                        required
+                        name="msj"
+                        v-model="contact.msj"
+                        rows=4
+                        class="uk-textarea"
+                        rows="5"
+                        placeholder="Mensaje"></textarea>
                 </div>
                 <div class="uk-margin">
                     <button class="uk-button uk-button-primary">Enviar</button>

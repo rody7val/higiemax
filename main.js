@@ -11,14 +11,14 @@
 
 //Vue.use(db);
 
-new Vue({
+const app = new Vue({
 	el: "#app",
-//	firestore() {
-//		return {
-//			persons: db.collection("persons")
-//		}
-//	},
-	data(){
+	//	firestore() {
+	//		return {
+	//			persons: db.collection("persons")
+	//		}
+	//	},
+	data() {
 		return {
 			title: "HigieMAX",
 
@@ -28,23 +28,23 @@ new Vue({
 				{ name: "CONTACTO", href: "#contacto" },
 			],
 
-			slideshow: [
-				{
-					title: "Desinfección COVID-19",
-					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-					src: "https://getuikit.com/docs/images/photo.jpg"
-				},
-				{
-					title: "Trabajo profesional",
-					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-					src: "https://getuikit.com/docs/images/dark.jpg"
-				},
-				{
-					title: "Confianza",
-					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-					src: "https://getuikit.com/docs/images/light.jpg"
-				}
-			],
+	//			slideshow: [
+	//				{
+	//					title: "Desinfección COVID-19",
+	//					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+	//					src: "https://getuikit.com/docs/images/photo.jpg"
+	//				},
+	//				{
+	//					title: "Trabajo profesional",
+	//					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+	//					src: "https://getuikit.com/docs/images/dark.jpg"
+	//				},
+	//				{
+	//					title: "Confianza",
+	//					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+	//					src: "https://getuikit.com/docs/images/light.jpg"
+	//				}
+	//			],
 
 			services: {
 				title: "Servicios",
@@ -115,7 +115,64 @@ new Vue({
 					},
 				]
 			},
+
+			clients: [
+				{ 
+					title: "Molino Cañuelas",
+					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+					img: "https://getuikit.com/docs/images/photo.jpg"
+				},
+				{ 
+					title: "Mediarg",
+					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+					img: "https://getuikit.com/docs/images/dark.jpg"
+				},
+				{ 
+					title: "Banco Provincia",
+					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+					img: "https://getuikit.com/docs/images/light.jpg"
+				},
+			],
+
+			contact: {
+				name: "",
+				email: "",
+				msj: "",
+				isSending: false,
+			},
+
 		}
 	},
 
+	methods: {
+
+		clearForm() {
+			for (let field in this.contact) {
+				this.contact[field] = ''
+			}
+		},
+
+		onSubmit(evt) {
+			evt.preventDefault();
+			this.isSending = true;
+			fetch("https://higiemax-pigue.web.app/contact")
+
+			.then(response => {
+					return response.json();
+				})
+				.then(response => {
+					console.log(response);
+					this.clearForm();
+					this.isSending = false;
+				})
+				.catch((e) => {
+					console.log(e)
+				})
+			;
+		}
+
+	},
+
 });
+
+window.app = app;
