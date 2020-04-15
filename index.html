@@ -131,7 +131,7 @@
     <div class="uk-container uk-container-expand">
         <div v-if="contact.isSending" class="loading">Sendig...</div>
         <div class="uk-card uk-card-default uk-card-body">
-            <form @submit="onSubmit">
+            <form @submit.prevent="onSubmit">
             <fieldset class="uk-fieldset">
                 <legend class="uk-legend"></legend>
                 <div class="uk-margin">
@@ -158,15 +158,15 @@
                 <div class="uk-margin">
                     <textarea 
                         required
-                        name="msj"
-                        v-model="contact.msj"
+                        name="message"
+                        v-model="contact.message"
                         rows=4
                         class="uk-textarea"
                         rows="5"
                         placeholder="Mensaje"></textarea>
                 </div>
                 <div class="uk-margin">
-                    <button class="uk-button uk-button-primary">Enviar</button>
+                    <input class="uk-button uk-button-primary" type="submit" value="enviar">
                 </div>
             </fieldset>
             </form>

@@ -1,23 +1,24 @@
-//const db = firebase.initializeApp({
-//	apiKey: "AIzaSyCC9Nv6093AOhHJ2DV59fMnKJ35Jj_Ed0w",
-//	authDomain: "higiemax-pigue.firebaseapp.com",
-//	databaseURL: "https://higiemax-pigue.firebaseio.com",
-//	projectId: "higiemax-pigue",
-//	storageBucket: "higiemax-pigue.appspot.com",
-//	messagingSenderId: "567445337446",
-//	appId: "1:567445337446:web:2bda26d66bd73193d404a7",
-//	measurementId: "G-T5TCCNWJWV"
-//}).firestore();
+firebase.initializeApp({
+	apiKey: "AIzaSyCC9Nv6093AOhHJ2DV59fMnKJ35Jj_Ed0w",
+	authDomain: "higiemax-pigue.firebaseapp.com",
+	databaseURL: "https://higiemax-pigue.firebaseio.com",
+	projectId: "higiemax-pigue",
+	storageBucket: "higiemax-pigue.appspot.com",
+	messagingSenderId: "567445337446",
+	appId: "1:567445337446:web:2bda26d66bd73193d404a7",
+	measurementId: "G-T5TCCNWJWV"
+});
 
 //Vue.use(db);
+const fetchContact = firebase.functions().httpsCallable("contact");
 
 const app = new Vue({
 	el: "#app",
-	//	firestore() {
-	//		return {
-	//			persons: db.collection("persons")
-	//		}
-	//	},
+		//firestore() {
+		//	return {
+		//		persons: db.collection("persons")
+		//	}
+		//},
 	data() {
 		return {
 			title: "HigieMAX",
@@ -27,24 +28,6 @@ const app = new Vue({
 				{ name: "CLIENTES", href: "#clientes" },
 				{ name: "CONTACTO", href: "#contacto" },
 			],
-
-	//			slideshow: [
-	//				{
-	//					title: "Desinfección COVID-19",
-	//					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-	//					src: "https://getuikit.com/docs/images/photo.jpg"
-	//				},
-	//				{
-	//					title: "Trabajo profesional",
-	//					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-	//					src: "https://getuikit.com/docs/images/dark.jpg"
-	//				},
-	//				{
-	//					title: "Confianza",
-	//					desc: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
-	//					src: "https://getuikit.com/docs/images/light.jpg"
-	//				}
-	//			],
 
 			services: {
 				title: "Servicios",
@@ -137,7 +120,7 @@ const app = new Vue({
 			contact: {
 				name: "",
 				email: "",
-				msj: "",
+				message: "",
 				isSending: false,
 			},
 
@@ -155,15 +138,18 @@ const app = new Vue({
 		onSubmit(evt) {
 			evt.preventDefault();
 			this.isSending = true;
-			fetch("https://higiemax-pigue.web.app/contact")
-
-			.then(response => {
-					return response.json();
-				})
-				.then(response => {
-					console.log(response);
-					this.clearForm();
-					this.isSending = false;
+			fetchContact({
+				name: this.contact.name,
+				email: this.contact.email,
+				message: this.contact.message,
+			})
+				.then(res => {
+					console.log(res);
+					if (res.data.success) {
+						alert("Mensaje enviado");
+						this.clearForm();
+						this.isSending = false;
+					}
 				})
 				.catch((e) => {
 					console.log(e)
