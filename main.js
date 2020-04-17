@@ -1,4 +1,4 @@
-firebase.initializeApp({
+const db = firebase.initializeApp({
 	apiKey: "AIzaSyCC9Nv6093AOhHJ2DV59fMnKJ35Jj_Ed0w",
 	authDomain: "higiemax-pigue.firebaseapp.com",
 	databaseURL: "https://higiemax-pigue.firebaseio.com",
@@ -7,18 +7,20 @@ firebase.initializeApp({
 	messagingSenderId: "567445337446",
 	appId: "1:567445337446:web:2bda26d66bd73193d404a7",
 	measurementId: "G-T5TCCNWJWV"
-});
+}).firestore();
 
-//Vue.use(db);
 const fetchContact = firebase.functions().httpsCallable("contact");
+Vue.use(db);
 
 const app = new Vue({
 	el: "#app",
-		//firestore() {
-		//	return {
-		//		persons: db.collection("persons")
-		//	}
-		//},
+
+	firestore() {
+		return {
+			messages: db.collection("message")
+		}
+	},
+
 	data() {
 		return {
 			title: "HigieMAX",
@@ -120,10 +122,10 @@ const app = new Vue({
 			contact: {
 				name: "",
 				email: "",
-				message: "",
-				isSending: false,
+				message: ""
 			},
 
+			isSending: false,
 		}
 	},
 
@@ -135,27 +137,40 @@ const app = new Vue({
 			}
 		},
 
-		onSubmit(evt) {
-			evt.preventDefault();
+		addMessage(){
 			this.isSending = true;
-			fetchContact({
-				name: this.contact.name,
-				email: this.contact.email,
-				message: this.contact.message,
+			this.$firestore.messages.add(this.contact)
+			.then(()=>{
+				alert("Mensaje enviado");
+				this.clearForm();
+				this.isSending = false;
 			})
-				.then(res => {
-					console.log(res);
-					if (res.data.success) {
-						alert("Mensaje enviado");
-						this.clearForm();
-						this.isSending = false;
-					}
-				})
-				.catch((e) => {
-					console.log(e)
-				})
-			;
-		}
+			.catch((e) => {
+				alert(e)
+			})
+		},
+
+		//onSubmit(evt) {
+		//	evt.preventDefault();
+		//	this.isSending = true;
+		//	fetchContact({
+		//		name: this.contact.name,
+		//		email: this.contact.email,
+		//		message: this.contact.message,
+		//	})
+		//		.then(res => {
+		//			console.log(res);
+		//			if (res.data.success) {
+		//				alert("Mensaje enviado");
+		//				this.clearForm();
+		//				this.isSending = false;
+		//			}
+		//		})
+		//		.catch((e) => {
+		//			console.log(e)
+		//		})
+		//	;
+		//}
 
 	},
 

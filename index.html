@@ -131,7 +131,7 @@
     <div class="uk-container uk-container-expand">
         <div v-if="contact.isSending" class="loading">Sendig...</div>
         <div class="uk-card uk-card-default uk-card-body">
-            <form @submit.prevent="onSubmit">
+            <form @submit.prevent="addMessage">
             <fieldset class="uk-fieldset">
                 <legend class="uk-legend"></legend>
                 <div class="uk-margin">
@@ -166,7 +166,8 @@
                         placeholder="Mensaje"></textarea>
                 </div>
                 <div class="uk-margin">
-                    <input class="uk-button uk-button-primary" type="submit" value="enviar">
+                    <div v-if="isSending" uk-spinner></div>
+                    <input v-else class="uk-button uk-button-primary" type="submit" value="enviar">
                 </div>
             </fieldset>
             </form>
