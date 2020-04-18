@@ -131,7 +131,7 @@
     <div class="uk-container uk-container-expand">
         <div v-if="contact.isSending" class="loading">Sendig...</div>
         <div class="uk-card uk-card-default uk-card-body">
-            <form @submit.prevent="addMessage">
+            <form @submit.prevent="onSubmit">
             <fieldset class="uk-fieldset">
                 <legend class="uk-legend"></legend>
                 <div class="uk-margin">
@@ -186,11 +186,11 @@
   <!-- Vue -->   
   <script src="https://unpkg.com/vue"></script>
   <!-- Firebase -->   
-  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase.js"></script> -->
   <!-- Firestore -->   
-  <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-firestore.js"></script>
+  <!-- <script src="https://www.gstatic.com/firebasejs/5.3.1/firebase-firestore.js"></script> -->
   <!-- vue-firestore -->
-  <script src="https://unpkg.com/vue-firestore"></script>
+  <!-- <script src="https://unpkg.com/vue-firestore"></script> -->
   <!-- main -->   
   <script src="main.js"></script>
 </body>

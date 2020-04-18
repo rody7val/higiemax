@@ -1,25 +1,25 @@
-const db = firebase.initializeApp({
-	apiKey: "AIzaSyCC9Nv6093AOhHJ2DV59fMnKJ35Jj_Ed0w",
-	authDomain: "higiemax-pigue.firebaseapp.com",
-	databaseURL: "https://higiemax-pigue.firebaseio.com",
-	projectId: "higiemax-pigue",
-	storageBucket: "higiemax-pigue.appspot.com",
-	messagingSenderId: "567445337446",
-	appId: "1:567445337446:web:2bda26d66bd73193d404a7",
-	measurementId: "G-T5TCCNWJWV"
-}).firestore();
+//const db = firebase.initializeApp({
+//	apiKey: "AIzaSyCC9Nv6093AOhHJ2DV59fMnKJ35Jj_Ed0w",
+//	authDomain: "higiemax-pigue.firebaseapp.com",
+//	databaseURL: "https://higiemax-pigue.firebaseio.com",
+//	projectId: "higiemax-pigue",
+//	storageBucket: "higiemax-pigue.appspot.com",
+//	messagingSenderId: "567445337446",
+//	appId: "1:567445337446:web:2bda26d66bd73193d404a7",
+//	measurementId: "G-T5TCCNWJWV"
+//}).firestore();
 
-const fetchContact = firebase.functions().httpsCallable("contact");
-Vue.use(db);
+//const fetchContact = firebase.functions().httpsCallable("contact");
+//Vue.use(db);
 
 const app = new Vue({
 	el: "#app",
 
-	firestore() {
-		return {
-			messages: db.collection("message")
-		}
-	},
+	//firestore() {
+	//	return {
+	//		messages: db.collection("message")
+	//	}
+	//},
 
 	data() {
 		return {
@@ -150,27 +150,24 @@ const app = new Vue({
 			})
 		},
 
-		//onSubmit(evt) {
-		//	evt.preventDefault();
-		//	this.isSending = true;
-		//	fetchContact({
-		//		name: this.contact.name,
-		//		email: this.contact.email,
-		//		message: this.contact.message,
-		//	})
-		//		.then(res => {
-		//			console.log(res);
-		//			if (res.data.success) {
-		//				alert("Mensaje enviado");
-		//				this.clearForm();
-		//				this.isSending = false;
-		//			}
-		//		})
-		//		.catch((e) => {
-		//			console.log(e)
-		//		})
-		//	;
-		//}
+		onSubmit(evt) {
+			evt.preventDefault();
+			this.isSending = true;
+			fetch(`https://lit-reef-85954.herokuapp.com/sms?name=${this.contact.name}&email=${this.contact.email}&message=${this.contact.message}`)
+				.then(res => {
+					console.log(res);
+					if (res.ok) {
+						alert("Mensaje enviado");
+						this.clearForm();
+						this.isSending = false;
+					}
+				})
+				.catch(e => {
+					console.log(e);
+					alert("Error", e);
+				})
+			;
+		}
 
 	},
 
